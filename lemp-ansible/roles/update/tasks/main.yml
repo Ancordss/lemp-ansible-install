@@ -12,6 +12,14 @@
     - make
     - mc
     - tree
+    - python3-pip
+    - python-devel
+
+- name: install pymysql
+  pip:
+    name: PyMySQL
+    state: present
+
 
 - name: Upgrade all packages to the latest version
   yum:
