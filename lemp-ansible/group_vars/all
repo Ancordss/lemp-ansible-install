@@ -20,7 +20,7 @@ username: username
 groupname: username
 
 
-php_version: "7.0"  # Define the PHP version variable here
+php_version: "8.0.30"  # Define the PHP version variable here
 
 php_memory_limit: 512M
 php_max_execution_time: 60

@@ -13,10 +13,14 @@
     - fpm
     - cli
 
-- name: PHP | Start PHP-FPM
-  shell: kill -USR2 1
-
+- name: PHP | Ensure PHP-FPM is started and enabled
+  ansible.builtin.service:
+    name: "php-fpm"
+    state: started
+    enabled: yes
 
 - name: PHP | Ensure nginx is started and enabled
-  shell: nginx -t && nginx -s reload || true
-  ignore_errors: yes
+  ansible.builtin.service:
+    name: nginx
+    state: restarted
+    enabled: yes

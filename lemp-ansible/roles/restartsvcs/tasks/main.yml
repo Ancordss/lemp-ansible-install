@@ -9,3 +9,7 @@
     name: php-fpm
     state: restarted
 
+- name: Show completion message
+  debug:
+    msg: "La configuración del servidor LEMP se completó correctamente. Visita http://localhost/info.php para verificar la instalación de PHP."
+
