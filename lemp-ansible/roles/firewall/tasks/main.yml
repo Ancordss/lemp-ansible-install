@@ -1,0 +1,27 @@
+---
+- name: Install python3-libselinux
+  yum:
+    name: python3-libselinux
+    state: present
+
+- name: Copy the EPEL repository definition
+  copy:
+    src: epel.repo
+    dest: /etc/yum.repos.d/epel.repo
+
+- name: Create the GPG key for EPEL 9
+  copy:
+    src: RPM-GPG-KEY-EPEL-9
+    dest: /etc/pki/rpm-gpg
+
+- name: Set up nftables rules
+  copy:
+    src: nftables.conf
+    dest: /etc/sysconfig/nftables.conf
+  notify: restart nftables
+
+- name: Enable and start nftables
+  systemd:
+    name: nftables
+    enabled: true
+    state: started

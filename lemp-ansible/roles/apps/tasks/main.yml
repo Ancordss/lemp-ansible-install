@@ -1,0 +1,18 @@
+
+- name: Ensure Nginx HTML directory ownership
+  file:
+    path: "{{ html_directory }}"
+    recurse: true
+
+- name: Create a PHP info file for testing
+  copy:
+    dest: "{{ test_php_file }}"
+    content: |
+      <?php
+      phpinfo();
+    mode: '0644'
+
+- name: Restart Nginx to apply any changes (optional)
+  service:
+    name: nginx
+    state: restarted

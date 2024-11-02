@@ -1,0 +1,16 @@
+- name: Provision LEMP and related tools
+  hosts: server
+  remote_user: root
+  become: yes
+  gather_facts: yes
+  environment:
+    ANSIBLE_MYSQLDB_MODULE: PyMySQL
+    ansible_python_interpreter: /usr/bin/python3
+
+  roles:
+    - update
+    - nginx
+    - php
+    - mysql
+    - apps
+    - restartsvcs

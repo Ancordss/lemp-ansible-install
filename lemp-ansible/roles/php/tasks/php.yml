@@ -1,0 +1,22 @@
+---
+- name: PHP | Install EPEL repository (required for some PHP extensions)
+  yum:
+    name: epel-release
+    state: present
+
+- name: PHP | Install PHP packages
+  yum:
+    name: "php-{{ item }}"
+    state: present
+  loop:
+    - mysqlnd
+    - fpm
+    - cli
+
+- name: PHP | Start PHP-FPM
+  shell: kill -USR2 1
+
+
+- name: PHP | Ensure nginx is started and enabled
+  shell: nginx -t && nginx -s reload || true
+  ignore_errors: yes

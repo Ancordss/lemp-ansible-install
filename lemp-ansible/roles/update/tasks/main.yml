@@ -1,0 +1,20 @@
+---
+- name: Install python3 for Ansible
+  raw: test -e /usr/bin/python3 || (yum -y install python3)
+  changed_when: false
+
+- name: Ensure core packages are installed
+  yum:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - at
+    - make
+    - mc
+    - tree
+
+- name: Upgrade all packages to the latest version
+  yum:
+    name: "*"
+    state: latest
+

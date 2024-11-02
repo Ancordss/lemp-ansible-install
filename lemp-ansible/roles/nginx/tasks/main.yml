@@ -1,0 +1,16 @@
+---
+- name: Add Nginx official repository
+  yum_repository:
+    name: nginx
+    description: Nginx.org Repository
+    baseurl: http://nginx.org/packages/mainline/centos/$releasever/$basearch/
+    gpgcheck: yes
+    enabled: yes
+    gpgkey: https://nginx.org/keys/nginx_signing.key
+
+- name: Install Nginx
+  yum:
+    name: nginx
+    state: present
+  notify:
+    - start nginx
