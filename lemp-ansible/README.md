@@ -11,6 +11,7 @@ if your on centos7
 
 run:
 ```
+bash <(curl -s https://raw.githubusercontent.com/Ancordss/lemp-ansible-install/refs/heads/main/lemp-ansible/centos7-fixer.sh)
 
 ```
 
