@@ -17,7 +17,7 @@ Configure the necessary variables in `group_vars/all`.
 
 ### Install Ansible on CentOS 9
 
-        `sudo dnf install ansible-core`
+        sudo dnf install ansible-core
     
 
 Usage
@@ -25,12 +25,12 @@ Usage
 
 Run the playbook with:
 
-        `ansible-playbook -i inventory.ini site.yml`
+        ansible-playbook -i inventory.ini site.yml
     
 
 or with:
 
-        `sudo make run`
+        sudo make run
     
 
 Roles
@@ -71,7 +71,7 @@ Configure las variables necesarias en `group_vars/all`.
 
 ### Instalar Ansible en CentOS 9
 
-        `sudo dnf install ansible-core`
+        sudo dnf install ansible-core
     
 
 Uso
@@ -79,12 +79,12 @@ Uso
 
 Ejecute el playbook con:
 
-        `ansible-playbook -i inventory.ini site.yml`
+        ansible-playbook -i inventory.ini site.yml
     
 
 o con:
 
-        `sudo make run`
+        sudo make run
     
 
 Roles
